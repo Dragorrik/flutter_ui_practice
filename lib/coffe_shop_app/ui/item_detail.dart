@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:practice_uis/coffe_shop_app/ui/order_page_ui.dart';
 
 String itemInfo =
     "A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85ml of fresh milk the fo..";
@@ -292,19 +293,29 @@ class ItemDetail extends StatelessWidget {
                   ],
                 ),
                 Spacer(),
-                Container(
-                  width: 0.55.sw,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFC67C4E),
-                    borderRadius: BorderRadius.circular(10.r),
-                  ),
-                  padding: EdgeInsets.all(15.r),
-                  child: Text(
-                    'Buy Now',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.sp,
-                      color: Colors.white,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return const OrderPageUi();
+                      }),
+                    );
+                  },
+                  child: Container(
+                    width: 0.55.sw,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFC67C4E),
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    padding: EdgeInsets.all(15.r),
+                    child: Text(
+                      'Buy Now',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),

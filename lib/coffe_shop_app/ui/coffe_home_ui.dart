@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:practice_uis/coffe_shop_app/components/custom_bottom_navbar.dart';
 import 'package:practice_uis/coffe_shop_app/components/upper_home_widgets.dart';
 import 'package:practice_uis/coffe_shop_app/model/coffeeItem.dart';
+import 'package:practice_uis/coffe_shop_app/ui/item_detail.dart';
 
 class CoffeHomeUi extends StatefulWidget {
   const CoffeHomeUi({super.key});
@@ -168,100 +169,110 @@ class _CoffeHomeUiState extends State<CoffeHomeUi> {
                       itemCount: currentItems().length,
                       itemBuilder: (context, index) {
                         final currentItemList = currentItems();
-                        return Container(
-                          padding: EdgeInsets.all(10.r),
-                          //height: 0.6.sh,
-                          decoration: BoxDecoration(
-                            color: Color(0XFFF5F5F5),
-                            borderRadius: BorderRadius.circular(20.r),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Stack(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(20.r),
-                                    child: Image.asset(
-                                      'assets/images/coffee.png',
-                                      height: 100.h,
-                                      width: double.infinity,
-                                      fit: BoxFit.cover,
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ItemDetail(),
+                                ));
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(10.r),
+                            //height: 0.6.sh,
+                            decoration: BoxDecoration(
+                              color: Color(0XFFF5F5F5),
+                              borderRadius: BorderRadius.circular(20.r),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(20.r),
+                                      child: Image.asset(
+                                        'assets/images/coffee.png',
+                                        height: 100.h,
+                                        width: double.infinity,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
-                                  ),
-                                  Positioned(
-                                      left: 0.29.sw,
-                                      top: 0.01.sh,
-                                      right: 0.01.sw,
-                                      child: Row(
-                                        children: [
-                                          Icon(
-                                            Icons.star,
-                                            color: Colors.yellowAccent,
-                                            size: 10.r,
-                                          ),
-                                          SizedBox(
-                                            width: 2.w,
-                                          ),
-                                          Text('4.8',
-                                              style: TextStyle(
-                                                fontSize: 10.sp,
-                                                fontWeight: FontWeight.w600,
-                                                color: Colors.white,
-                                              )),
-                                        ],
-                                      ))
-                                ],
-                              ),
-                              SizedBox(
-                                height: 10.h,
-                              ),
-                              Text(
-                                currentItemList[index].name,
-                                style: TextStyle(
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w600,
+                                    Positioned(
+                                        left: 0.29.sw,
+                                        top: 0.01.sh,
+                                        right: 0.01.sw,
+                                        child: Row(
+                                          children: [
+                                            Icon(
+                                              Icons.star,
+                                              color: Colors.yellowAccent,
+                                              size: 10.r,
+                                            ),
+                                            SizedBox(
+                                              width: 2.w,
+                                            ),
+                                            Text('4.8',
+                                                style: TextStyle(
+                                                  fontSize: 10.sp,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Colors.white,
+                                                )),
+                                          ],
+                                        ))
+                                  ],
                                 ),
-                              ),
-                              SizedBox(
-                                height: 5.h,
-                              ),
-                              Text(
-                                currentItemList[index].subtext,
-                                style: TextStyle(
-                                    fontSize: 9.sp,
-                                    color: Colors.black.withOpacity(0.5)),
-                              ),
-                              SizedBox(
-                                height: 10.h,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    currentItemList[index].price.toString(),
-                                    style: TextStyle(
-                                      fontSize: 15.sp,
-                                      fontWeight: FontWeight.w800,
-                                    ),
+                                SizedBox(
+                                  height: 10.h,
+                                ),
+                                Text(
+                                  currentItemList[index].name,
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600,
                                   ),
-                                  Container(
-                                    padding: EdgeInsets.all(10.r),
-                                    decoration: BoxDecoration(
-                                      color: Color(0XFFC67C4E),
-                                      borderRadius: BorderRadius.circular(10.r),
+                                ),
+                                SizedBox(
+                                  height: 5.h,
+                                ),
+                                Text(
+                                  currentItemList[index].subtext,
+                                  style: TextStyle(
+                                      fontSize: 9.sp,
+                                      color: Colors.black.withOpacity(0.5)),
+                                ),
+                                SizedBox(
+                                  height: 10.h,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      currentItemList[index].price.toString(),
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w800,
+                                      ),
                                     ),
-                                    child: Icon(
-                                      Icons.add,
-                                      color: Colors.white,
-                                      size: 10.r,
-                                    ),
-                                  )
-                                ],
-                              )
-                            ],
+                                    Container(
+                                      padding: EdgeInsets.all(10.r),
+                                      decoration: BoxDecoration(
+                                        color: Color(0XFFC67C4E),
+                                        borderRadius:
+                                            BorderRadius.circular(10.r),
+                                      ),
+                                      child: Icon(
+                                        Icons.add,
+                                        color: Colors.white,
+                                        size: 10.r,
+                                      ),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         );
                       }),

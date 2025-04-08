@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:practice_uis/coffe_shop_app/ui/coffe_home_ui.dart';
 
 class OnboardUi extends StatelessWidget {
   const OnboardUi({super.key});
@@ -63,7 +64,13 @@ class OnboardUi extends StatelessWidget {
                     height: 30.h,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CoffeHomeUi(),
+                          ));
+                    },
                     child: Container(
                       padding: EdgeInsets.all(10.r),
                       height: 50.h,
