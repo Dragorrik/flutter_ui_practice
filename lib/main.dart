@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:practice_uis/coffe_shop_app/ui/item_detail.dart';
+import 'package:practice_uis/coffe_shop_app/ui/order_page_ui.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const ItemDetail(),
+        home: const OrderPageUi(),
       ),
     );
   }
