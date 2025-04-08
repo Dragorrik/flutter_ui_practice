@@ -179,14 +179,40 @@ class _CoffeHomeUiState extends State<CoffeHomeUi> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(20.r),
-                                child: Image.asset(
-                                  'assets/images/coffee.png',
-                                  height: 100.h,
-                                  width: double.infinity,
-                                  fit: BoxFit.cover,
-                                ),
+                              Stack(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(20.r),
+                                    child: Image.asset(
+                                      'assets/images/coffee.png',
+                                      height: 100.h,
+                                      width: double.infinity,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Positioned(
+                                      left: 0.29.sw,
+                                      top: 0.01.sh,
+                                      right: 0.01.sw,
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.star,
+                                            color: Colors.yellowAccent,
+                                            size: 10.r,
+                                          ),
+                                          SizedBox(
+                                            width: 2.w,
+                                          ),
+                                          Text('4.8',
+                                              style: TextStyle(
+                                                fontSize: 10.sp,
+                                                fontWeight: FontWeight.w600,
+                                                color: Colors.white,
+                                              )),
+                                        ],
+                                      ))
+                                ],
                               ),
                               SizedBox(
                                 height: 10.h,
