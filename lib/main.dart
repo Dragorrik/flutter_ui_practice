@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:practice_uis/coffe_shop_app/ui/onboard_ui.dart';
+import 'package:practice_uis/gym_app/gym_home_ui.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(),
-        home: const OnboardUi(),
+        home: const GymHomeUi(),
       ),
     );
   }
