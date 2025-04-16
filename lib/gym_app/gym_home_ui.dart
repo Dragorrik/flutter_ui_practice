@@ -48,6 +48,25 @@ class GymHomeUi extends StatelessWidget {
                       GymHomeWidgets.upcomingWidgets(),
                 ),
               ),
+              SizedBox(height: 25.h),
+              Text("Gyms Near You",
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w500,
+                  )),
+              SizedBox(height: 10.h),
+              SizedBox(
+                height: 150.h,
+                width: 380.w,
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  separatorBuilder: (context, index) => SizedBox(width: 10.w),
+                  itemBuilder: (context, index) =>
+                      GymHomeWidgets.gymsNearMeWidgets(),
+                ),
+              ),
             ],
           ),
         ),

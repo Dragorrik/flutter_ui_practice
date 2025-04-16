@@ -63,4 +63,62 @@ class GymHomeWidgets {
       ),
     );
   }
+
+  static Widget gymsNearMeWidgets() {
+    return Container(
+      padding: EdgeInsets.all(20.r),
+      height: 200.h,
+      width: 150.w,
+      decoration: BoxDecoration(
+        color: Colors.grey.shade200,
+        borderRadius: BorderRadius.circular(20.r),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Gym Name",
+              style: TextStyle(
+                fontSize: 18.sp,
+                fontWeight: FontWeight.w800,
+              )),
+          SizedBox(height: 10.h),
+          Row(
+            children: [
+              Icon(Icons.timer, size: 15.sp),
+              SizedBox(width: 5.w),
+              Text("10 AM - 11 AM",
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w500,
+                  )),
+            ],
+          ),
+          SizedBox(height: 10.h),
+          Row(
+            children: [
+              Icon(Icons.route, size: 15.sp),
+              SizedBox(width: 5.w),
+              Text("5 km",
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w500,
+                  )),
+            ],
+          ),
+          SizedBox(height: 10.h),
+          Row(
+            children: [
+              Icon(Icons.star, size: 15.sp),
+              SizedBox(width: 5.w),
+              Text("4.5",
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w500,
+                  )),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }
