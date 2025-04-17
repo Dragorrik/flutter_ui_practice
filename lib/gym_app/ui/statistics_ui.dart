@@ -43,6 +43,24 @@ class _StatisticsUiState extends State<StatisticsUi> {
                     selectedDate = date;
                   });
                 }),
+                SizedBox(
+                  height: 20.h,
+                ),
+                Text("Overview",
+                    style: TextStyle(
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w500,
+                    )),
+                SizedBox(
+                  height: 10.h,
+                ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      StatisticWidgets.overviewWidgets(),
+                      StatisticWidgets.overviewWidgets(),
+                      StatisticWidgets.overviewWidgets(),
+                    ])
               ],
             )),
       ),
