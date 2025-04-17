@@ -95,7 +95,7 @@ class GymHomeUi extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   )),
               SizedBox(height: 10.h),
-              ,
+              GymHomeWidgets.activitiesGraphWidgets(weekdays, dataPoints),
             ],
           ),
         ),

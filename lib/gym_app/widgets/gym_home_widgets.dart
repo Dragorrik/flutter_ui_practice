@@ -123,7 +123,8 @@ class GymHomeWidgets {
     );
   }
 
-  static Widget activitiesGraphWidgets() {
+  static Widget activitiesGraphWidgets(
+      List<String> weekdays, List<FlSpot> dataPoints) {
     return SizedBox(
       height: 250.h,
       child: LineChart(
