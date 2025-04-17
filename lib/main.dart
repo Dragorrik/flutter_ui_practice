@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(),
-        home: const GymHomeUi(),
+        home: GymHomeUi(),
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -118,6 +119,86 @@ class GymHomeWidgets {
             ],
           ),
         ],
+      ),
+    );
+  }
+
+  static Widget activitiesGraphWidgets() {
+    return SizedBox(
+      height: 250.h,
+      child: LineChart(
+        LineChartData(
+          minY: 0,
+          maxY: 5,
+          titlesData: FlTitlesData(
+            leftTitles: AxisTitles(
+              sideTitles: SideTitles(showTitles: true, reservedSize: 30),
+            ),
+            bottomTitles: AxisTitles(
+              sideTitles: SideTitles(
+                showTitles: true,
+                getTitlesWidget: (value, meta) {
+                  if (!value.isNaN &&
+                      value.isFinite &&
+                      value.toInt() >= 0 &&
+                      value.toInt() < weekdays.length) {
+                    return Text(weekdays[value.toInt()],
+                        style: const TextStyle(color: Colors.grey));
+                  }
+                  return const SizedBox.shrink();
+                },
+                interval: 1,
+              ),
+            ),
+          ),
+          gridData: FlGridData(show: false),
+          borderData: FlBorderData(show: false),
+          lineBarsData: [
+            LineChartBarData(
+              spots: dataPoints,
+              isCurved: true,
+              dotData: FlDotData(show: true),
+              belowBarData: BarAreaData(
+                show: true,
+                gradient: LinearGradient(
+                  colors: [Colors.blue.withOpacity(0.3), Colors.transparent],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              color: Colors.blue,
+              barWidth: 3,
+            ),
+          ],
+          lineTouchData: LineTouchData(
+            getTouchedSpotIndicator:
+                (LineChartBarData barData, List<int> indicators) {
+              return indicators.map((index) {
+                return TouchedSpotIndicatorData(
+                  FlLine(color: Colors.blue, strokeWidth: 2),
+                  FlDotData(show: true),
+                );
+              }).toList();
+            },
+            touchTooltipData: LineTouchTooltipData(
+              getTooltipColor: (touchedSpot) {
+                return Colors.blue;
+              },
+              getTooltipItems: (touchedSpots) {
+                return touchedSpots.map((spot) {
+                  final hours = spot.y.floor();
+                  final mins = ((spot.y - hours) * 60).round();
+                  return LineTooltipItem(
+                    "$hours h $mins min",
+                    const TextStyle(
+                      color: Colors.white,
+                    ),
+                  );
+                }).toList();
+              },
+            ),
+          ),
+        ),
       ),
     );
   }

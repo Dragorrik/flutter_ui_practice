@@ -1,9 +1,30 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:practice_uis/gym_app/widgets/gym_home_widgets.dart';
 
 class GymHomeUi extends StatelessWidget {
-  const GymHomeUi({super.key});
+  GymHomeUi({super.key});
+
+  final List<FlSpot> dataPoints = [
+    FlSpot(0, 3.2),
+    FlSpot(1, 2.0),
+    FlSpot(2, 3.1),
+    FlSpot(3, 4.2),
+    FlSpot(4, 3.8),
+    FlSpot(5, 4.7),
+    FlSpot(6, 4.3),
+  ];
+
+  final List<String> weekdays = [
+    'Mon',
+    'Tue',
+    'Wed',
+    'Thu',
+    'Fri',
+    'Sat',
+    'Sun'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +88,14 @@ class GymHomeUi extends StatelessWidget {
                       GymHomeWidgets.gymsNearMeWidgets(),
                 ),
               ),
+              SizedBox(height: 25.h),
+              Text("Activities",
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w500,
+                  )),
+              SizedBox(height: 10.h),
+              ,
             ],
           ),
         ),
