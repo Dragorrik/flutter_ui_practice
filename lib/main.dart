@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:practice_uis/gym_app/ui/statistics_ui.dart';
+import 'package:practice_uis/gym_app/ui/user_profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(),
-        home: StatisticsUi(),
+        home: UserProfile(),
       ),
     );
   }
