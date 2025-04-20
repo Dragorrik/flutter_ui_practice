@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:practice_uis/gym_app/widgets/progress_ring_data.dart';
 import 'package:practice_uis/gym_app/widgets/progress_rings.dart';
 import 'package:practice_uis/gym_app/widgets/statistic_widgets.dart';
+import 'package:practice_uis/gym_app/widgets/weekly_bar_charts.dart';
 
 class StatisticsUi extends StatefulWidget {
   const StatisticsUi({super.key});
@@ -27,79 +28,89 @@ class _StatisticsUiState extends State<StatisticsUi> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-            padding: EdgeInsets.all(20.r),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Statistics",
-                  style:
-                      TextStyle(fontSize: 25.sp, fontWeight: FontWeight.w500),
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                StatisticWidgets.calenderWidget(
-                    monthText, weekDates, selectedDate, (date) {
-                  setState(() {
-                    selectedDate = date;
-                  });
-                }),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Text("Overview",
-                    style: TextStyle(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w500,
-                    )),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      StatisticWidgets.overviewWidgets(),
-                      StatisticWidgets.overviewWidgets(),
-                      StatisticWidgets.overviewWidgets(),
-                    ]),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Text("Daily Progress",
-                    style: TextStyle(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w500,
-                    )),
-                SizedBox(
-                  height: 25.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    const ConcentricProgressRings(),
-                    const SizedBox(width: 20),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        ProgressRingData(
-                            color: Colors.lightBlue,
-                            text: "Sleep",
-                            value: "6h 5min/8h"),
-                        ProgressRingData(
-                            color: Colors.pinkAccent,
-                            text: "Calories",
-                            value: "1050/2000"),
-                        ProgressRingData(
-                            color: Colors.orangeAccent,
-                            text: "Steps",
-                            value: "2015/6000"),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            )),
+          padding: EdgeInsets.all(20.r),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Statistics",
+                style: TextStyle(fontSize: 25.sp, fontWeight: FontWeight.w500),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              StatisticWidgets.calenderWidget(
+                  monthText, weekDates, selectedDate, (date) {
+                setState(() {
+                  selectedDate = date;
+                });
+              }),
+              SizedBox(
+                height: 20.h,
+              ),
+              Text("Overview",
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w500,
+                  )),
+              SizedBox(
+                height: 10.h,
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                StatisticWidgets.overviewWidgets(),
+                StatisticWidgets.overviewWidgets(),
+                StatisticWidgets.overviewWidgets(),
+              ]),
+              SizedBox(
+                height: 20.h,
+              ),
+              Text("Daily Progress",
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w500,
+                  )),
+              SizedBox(
+                height: 25.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const ConcentricProgressRings(),
+                  const SizedBox(width: 20),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      ProgressRingData(
+                          color: Colors.lightBlue,
+                          text: "Sleep",
+                          value: "6h 5min/8h"),
+                      ProgressRingData(
+                          color: Colors.pinkAccent,
+                          text: "Calories",
+                          value: "1050/2000"),
+                      ProgressRingData(
+                          color: Colors.orangeAccent,
+                          text: "Steps",
+                          value: "2015/6000"),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Text("Calories",
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w500,
+                  )),
+              SizedBox(
+                height: 25.h,
+              ),
+              WeeklyBarChart(),
+            ],
+          ),
+        ),
       ),
     );
   }
